@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>English Class Poster - Square</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #130f34;
+      --cyan: #4ce0ff;
+      --violet: #8f73ff;
+      --pink: #ff6cd6;
+      --green: #66f7bf;
+      --yellow: #ffd66a;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: clamp(14px, 3vw, 30px);
+      font-family: "Outfit", sans-serif;
+      color: var(--white);
+      background:
+        radial-gradient(circle at 12% 8%, #4b2ea1 0%, transparent 38%),
+        radial-gradient(circle at 88% 8%, #1f74c8 0%, transparent 35%),
+        radial-gradient(circle at 50% 100%, #3d1f84 0%, var(--bg) 60%);
+    }
+
+    .poster {
+      width: min(1080px, 95vw);
+      aspect-ratio: 1 / 1;
+      position: relative;
+      overflow: hidden;
+      border-radius: 34px;
+      border: 1px solid rgba(255, 255, 255, 0.32);
+      background:
+        radial-gradient(circle at 12% 8%, rgba(143, 115, 255, 0.62), transparent 32%),
+        radial-gradient(circle at 92% 10%, rgba(76, 224, 255, 0.52), transparent 35%),
+        radial-gradient(circle at 80% 88%, rgba(255, 108, 214, 0.5), transparent 42%),
+        linear-gradient(145deg, #231d62 0%, #131236 50%, #381f70 100%);
+      box-shadow: 0 32px 80px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.08) inset;
+    }
+
+    .poster::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0.09), transparent 32%, transparent 72%, rgba(255, 255, 255, 0.06));
+      pointer-events: none;
+    }
+
+    .glow {
+      position: absolute;
+      border-radius: 50%;
+      z-index: 1;
+      pointer-events: none;
+      filter: blur(2px);
+    }
+
+    .glow-a {
+      width: 240px;
+      height: 240px;
+      left: -70px;
+      bottom: -70px;
+      background: rgba(255, 108, 214, 0.34);
+    }
+
+    .glow-b {
+      width: 210px;
+      height: 210px;
+      right: -30px;
+      top: -50px;
+      background: rgba(76, 224, 255, 0.3);
+    }
+
+    .badge {
+      position: absolute;
+      left: 24px;
+      top: 24px;
+      z-index: 3;
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: linear-gradient(120deg, var(--pink), #ff9c6f);
+      font-size: clamp(13px, 1.2vw, 18px);
+      font-weight: 800;
+      letter-spacing: 0.45px;
+      box-shadow: 0 8px 24px rgba(255, 108, 214, 0.35);
+    }
+
+    .poster-inner {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(14px, 2vw, 30px);
+      padding: clamp(20px, 4vw, 48px);
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 14px;
+      margin-top: clamp(18px, 3vw, 48px);
+    }
+
+    h1 {
+      margin: 0;
+      line-height: 1.08;
+      font-size: clamp(34px, 4.5vw, 66px);
+      font-weight: 900;
+      text-wrap: balance;
+    }
+
+    .sub {
+      margin: 0;
+      color: #e4edff;
+      line-height: 1.45;
+      font-size: clamp(15px, 1.55vw, 23px);
+      max-width: 95%;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 2px;
+    }
+
+    .chip {
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.34);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: clamp(12px, 1.1vw, 17px);
+      font-weight: 700;
+    }
+
+    .name-box {
+      border-left: 5px solid var(--cyan);
+      padding-left: 14px;
+    }
+
+    .name-box strong {
+      display: block;
+      font-size: clamp(21px, 2vw, 32px);
+      margin-bottom: 5px;
+    }
+
+    .name-box span {
+      font-size: clamp(14px, 1.2vw, 19px);
+      color: #d4f0ff;
+      line-height: 1.5;
+    }
+
+    .cta {
+      width: fit-content;
+      margin-top: 2px;
+      padding: 12px 16px;
+      border-radius: 14px;
+      background: linear-gradient(120deg, #7bffca, #2dd682);
+      color: #0d3d23;
+      font-size: clamp(15px, 1.4vw, 23px);
+      font-weight: 900;
+      box-shadow: 0 10px 24px rgba(55, 217, 134, 0.35);
+    }
+
+    .highlight {
+      width: fit-content;
+      margin-top: 2px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      background: linear-gradient(120deg, #ffe590, var(--yellow));
+      color: #482b00;
+      font-size: clamp(13px, 1.1vw, 18px);
+      font-weight: 900;
+    }
+
+    .visual {
+      align-self: center;
+      display: grid;
+      gap: 12px;
+    }
+
+    .photo-main,
+    .photo-sub {
+      width: 100%;
+      border-radius: 16px;
+      border: 2px solid rgba(255, 255, 255, 0.45);
+      object-fit: cover;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+    }
+
+    .photo-main {
+      aspect-ratio: 4 / 3;
+    }
+
+    .photo-sub {
+      aspect-ratio: 4 / 2.5;
+    }
+
+    .watermark {
+      position: absolute;
+      right: 18px;
+      bottom: 14px;
+      z-index: 3;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: clamp(12px, 1vw, 16px);
+      font-weight: 700;
+    }
+
+    @media (max-width: 920px) {
+      .poster {
+        aspect-ratio: auto;
+      }
+
+      .poster-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .visual {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .photo-main,
+      .photo-sub {
+        aspect-ratio: 4 / 3;
+      }
+
+      .watermark {
+        position: static;
+        margin: 0 18px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="poster">
+    <div class="badge">LIMITED SEATS</div>
+    <div class="glow glow-a"></div>
+    <div class="glow glow-b"></div>
+    <div class="poster-inner">
+      <div class="content">
+        <h1>Boost Your English Results</h1>
+        <p class="sub">Join premium classes for school English and IELTS preparation with personalized guidance.</p>
+        <div class="chips">
+          <span class="chip">Grade 6 to 13</span>
+          <span class="chip">Online + Physical</span>
+          <span class="chip">Weekly Assessments</span>
+        </div>
+        <div class="name-box">
+          <strong>Dimalsha Thathsarani</strong>
+          <span>Trusted teacher with classroom + online teaching expertise.</span>
+        </div>
+        <div class="highlight">Fast Revision + Targeted Writing Practice</div>
+        <div class="cta">Register via WhatsApp: 0760536152</div>
+      </div>
+      <div class="visual">
+        <img class="photo-main" src="Screenshot 2026-04-25 030056.png" alt="Teacher portrait from class">
+        <img class="photo-sub" src="Screenshot 2026-04-25 025926.png" alt="English phrases lesson screen">
+      </div>
+    </div>
+    <div class="watermark">Devi Balika Vidyalaya - Colombo</div>
+  </section>
+</body>
+</html>

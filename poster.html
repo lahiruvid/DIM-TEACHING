@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dimalsha English Classes Poster</title>
+  <title>English Class Poster - Main</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
@@ -13,7 +13,8 @@
       --pink: #ff4fd8;
       --violet: #7b5cff;
       --blue: #4ecbff;
-      --orange: #ff9f43;
+      --green: #51f2b2;
+      --orange: #ffb25a;
       --white: #ffffff;
     }
 
@@ -23,17 +24,14 @@
 
     body {
       margin: 0;
+      min-height: 100vh;
       font-family: "Outfit", sans-serif;
-      background: radial-gradient(circle at 20% 10%, #2a1f54 0%, var(--bg) 70%);
+      background:
+        radial-gradient(circle at 8% 10%, #4236a6 0%, transparent 38%),
+        radial-gradient(circle at 88% 5%, #1d6bbf 0%, transparent 35%),
+        radial-gradient(circle at 50% 100%, #3b1d7a 0%, var(--bg) 60%);
       color: var(--white);
-      padding: 28px 18px 44px;
-    }
-
-    .top-note {
-      text-align: center;
-      margin: 0 0 16px;
-      color: #e9dbff;
-      font-weight: 600;
+      padding: clamp(16px, 3vw, 30px);
     }
 
     .poster-list {
@@ -42,134 +40,193 @@
       justify-content: center;
     }
 
+    .top-note {
+      text-align: center;
+      margin: 0 0 16px;
+      color: #f0dfff;
+      font-size: clamp(14px, 1.25vw, 18px);
+      font-weight: 700;
+    }
+
     .poster {
       position: relative;
+      width: min(1080px, 95vw);
       overflow: hidden;
-      border-radius: 30px;
-      border: 2px solid rgba(255, 255, 255, 0.32);
+      border-radius: 34px;
+      border: 1px solid rgba(255, 255, 255, 0.35);
       background:
-        radial-gradient(circle at 10% 5%, rgba(255, 79, 216, 0.38), transparent 35%),
-        radial-gradient(circle at 90% 0%, rgba(78, 203, 255, 0.36), transparent 30%),
-        radial-gradient(circle at 70% 100%, rgba(255, 159, 67, 0.25), transparent 42%),
-        linear-gradient(155deg, #23184a 0%, #140d2d 60%, #2d1b57 100%);
-      box-shadow: 0 26px 60px rgba(0, 0, 0, 0.45);
+        radial-gradient(circle at 8% 8%, rgba(255, 79, 216, 0.58), transparent 30%),
+        radial-gradient(circle at 95% 5%, rgba(78, 203, 255, 0.5), transparent 35%),
+        radial-gradient(circle at 80% 100%, rgba(255, 159, 67, 0.42), transparent 45%),
+        linear-gradient(150deg, #27195b 0%, #160f32 52%, #3b2879 100%);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.52), 0 0 0 1px rgba(255, 255, 255, 0.08) inset;
     }
 
     .poster.portrait {
-      width: min(1080px, 95vw);
       aspect-ratio: 4 / 5;
     }
 
     .poster.square {
-      width: min(1080px, 95vw);
       aspect-ratio: 1 / 1;
+      background:
+        radial-gradient(circle at 12% 12%, rgba(255, 79, 216, 0.5), transparent 34%),
+        radial-gradient(circle at 90% 8%, rgba(78, 203, 255, 0.46), transparent 32%),
+        radial-gradient(circle at 50% 100%, rgba(255, 178, 90, 0.42), transparent 46%),
+        linear-gradient(150deg, #2f1a68 0%, #1b0f3a 50%, #41257b 100%);
+    }
+
+    .poster::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(95deg, rgba(255, 255, 255, 0.08), transparent 30%, transparent 70%, rgba(255, 255, 255, 0.06));
+      pointer-events: none;
+    }
+
+    .glow {
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(2px);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .glow-a {
+      width: 260px;
+      height: 260px;
+      left: -70px;
+      bottom: -80px;
+      background: rgba(255, 79, 216, 0.35);
+    }
+
+    .glow-b {
+      width: 220px;
+      height: 220px;
+      right: -30px;
+      top: -40px;
+      background: rgba(78, 203, 255, 0.28);
+    }
+
+    .poster-inner {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: clamp(14px, 2vw, 36px);
+      padding: clamp(20px, 4.5vw, 56px);
     }
 
     .badge {
       position: absolute;
       top: 26px;
       left: 26px;
-      background: linear-gradient(120deg, var(--pink), var(--orange));
-      padding: 10px 16px;
+      padding: 10px 18px;
       border-radius: 999px;
+      background: linear-gradient(120deg, var(--pink), var(--orange));
+      box-shadow: 0 8px 22px rgba(255, 79, 216, 0.4);
+      font-size: clamp(13px, 1.45vw, 20px);
       font-weight: 800;
-      letter-spacing: 0.3px;
-      font-size: clamp(14px, 1.5vw, 20px);
+      letter-spacing: 0.45px;
+      z-index: 3;
     }
 
-    .poster-inner {
-      height: 100%;
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: clamp(16px, 2vw, 34px);
-      padding: clamp(22px, 4vw, 56px);
-    }
-
-    .square .poster-inner {
-      grid-template-columns: 1fr 1fr;
+    .square .badge {
+      background: linear-gradient(120deg, var(--violet), var(--blue));
+      box-shadow: 0 8px 22px rgba(78, 203, 255, 0.38);
     }
 
     .content {
-      z-index: 2;
+      margin-top: clamp(22px, 4.8vw, 70px);
       display: flex;
       flex-direction: column;
       justify-content: center;
+      gap: 14px;
     }
 
     h1 {
-      margin: 0 0 8px;
+      margin: 0;
       line-height: 1.05;
-      font-size: clamp(38px, 5vw, 74px);
+      font-size: clamp(36px, 5vw, 76px);
       font-weight: 900;
+      text-wrap: balance;
     }
 
     .sub {
-      margin: 0 0 16px;
-      color: #f2d6ff;
+      margin: 0;
+      color: #e8ddff;
       font-size: clamp(16px, 1.8vw, 28px);
       line-height: 1.45;
       max-width: 92%;
     }
 
     .name-box {
-      margin: 0 0 14px;
       border-left: 5px solid var(--blue);
       padding-left: 14px;
+      margin-top: 2px;
     }
 
     .name-box strong {
       display: block;
-      font-size: clamp(22px, 2.6vw, 38px);
+      font-size: clamp(22px, 2.4vw, 38px);
+      margin-bottom: 5px;
     }
 
     .name-box span {
-      color: #d5e8ff;
-      font-size: clamp(14px, 1.5vw, 24px);
+      color: #d8e9ff;
       line-height: 1.5;
+      font-size: clamp(14px, 1.45vw, 23px);
     }
 
     .chips {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin: 6px 0 18px;
     }
 
     .chip {
-      background: rgba(255, 255, 255, 0.15);
-      border: 1px solid rgba(255, 255, 255, 0.24);
-      border-radius: 999px;
       padding: 8px 13px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      background: rgba(255, 255, 255, 0.14);
+      backdrop-filter: blur(4px);
       font-size: clamp(12px, 1.2vw, 18px);
       font-weight: 700;
     }
 
     .offer {
       display: inline-block;
-      background: linear-gradient(120deg, #ffdc73, #ff9f43);
-      color: #3e2600;
-      font-weight: 900;
-      padding: 10px 14px;
+      width: fit-content;
+      margin-top: 4px;
+      padding: 10px 16px;
       border-radius: 12px;
-      margin-bottom: 14px;
-      font-size: clamp(13px, 1.25vw, 20px);
+      background: linear-gradient(120deg, #ffe27c, #ffb24b);
+      color: #402600;
+      font-weight: 900;
+      font-size: clamp(13px, 1.2vw, 19px);
+      box-shadow: 0 8px 20px rgba(255, 178, 90, 0.35);
     }
 
     .cta {
-      margin-top: 8px;
-      background: linear-gradient(120deg, #5dffab, #25d366);
-      color: #0d3b21;
-      border-radius: 14px;
-      padding: 12px 14px;
       width: fit-content;
-      font-size: clamp(16px, 1.7vw, 28px);
+      margin-top: 6px;
+      padding: 12px 16px;
+      border-radius: 14px;
+      background: linear-gradient(125deg, #74ffc2, #22cc72);
+      color: #0c3e22;
+      font-size: clamp(16px, 1.6vw, 27px);
       font-weight: 900;
       letter-spacing: 0.2px;
+      box-shadow: 0 10px 25px rgba(48, 222, 132, 0.36);
+    }
+
+    .square .cta {
+      background: linear-gradient(125deg, #86ffcf, #35d7a0);
     }
 
     .visual {
+      align-self: center;
       display: grid;
-      align-content: center;
       gap: 12px;
       z-index: 2;
     }
@@ -177,9 +234,10 @@
     .photo-main,
     .photo-sub {
       width: 100%;
-      border-radius: 16px;
+      border-radius: 18px;
+      border: 2px solid rgba(255, 255, 255, 0.45);
       object-fit: cover;
-      border: 2px solid rgba(255, 255, 255, 0.4);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
     }
 
     .photo-main {
@@ -192,48 +250,30 @@
 
     .watermark {
       position: absolute;
-      right: 16px;
-      bottom: 14px;
+      right: 20px;
+      bottom: 16px;
+      z-index: 3;
+      font-size: clamp(12px, 1.2vw, 18px);
       font-weight: 700;
-      font-size: clamp(13px, 1.3vw, 18px);
-      color: rgba(255, 255, 255, 0.88);
-      z-index: 2;
-    }
-
-    .circle {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(1px);
-      z-index: 1;
-    }
-
-    .c1 {
-      width: 220px;
-      height: 220px;
-      left: -60px;
-      bottom: -40px;
-      background: rgba(255, 79, 216, 0.3);
-    }
-
-    .c2 {
-      width: 180px;
-      height: 180px;
-      right: 16px;
-      top: 8px;
-      background: rgba(78, 203, 255, 0.25);
+      letter-spacing: 0.2px;
+      color: rgba(255, 255, 255, 0.92);
     }
 
     .screenshot-tip {
       margin: 14px auto 0;
       width: min(1080px, 95vw);
-      color: #e8d8ff;
       text-align: center;
-      font-size: 0.95rem;
+      color: #ead8ff;
+      font-size: clamp(13px, 1.2vw, 16px);
+      font-weight: 600;
     }
 
     @media (max-width: 900px) {
-      .poster-inner,
-      .square .poster-inner {
+      .poster {
+        aspect-ratio: auto;
+      }
+
+      .poster-inner {
         grid-template-columns: 1fr;
       }
 
@@ -245,17 +285,21 @@
       .photo-sub {
         aspect-ratio: 4 / 3;
       }
+
+      .watermark {
+        position: static;
+        margin: 0 20px 18px;
+      }
     }
   </style>
 </head>
 <body>
-  <p class="top-note">Marketing Poster Templates - Ready to Screenshot</p>
-
+  <p class="top-note">Two colorful templates matching your website style</p>
   <div class="poster-list">
     <section class="poster portrait">
       <div class="badge">ADMISSIONS OPEN</div>
-      <div class="circle c1"></div>
-      <div class="circle c2"></div>
+      <div class="glow glow-a"></div>
+      <div class="glow glow-b"></div>
       <div class="poster-inner">
         <div class="content">
           <h1>Master English with Confidence</h1>
@@ -273,8 +317,8 @@
           <div class="cta">WhatsApp: 0760536152</div>
         </div>
         <div class="visual">
-          <img class="photo-main" src="file:///C:/Users/lahir/.cursor/projects/c-Users-lahir-OneDrive-Desktop-DIM-TEACHING/assets/c__Users_lahir_AppData_Roaming_Cursor_User_workspaceStorage_02ec47db3cdf3cd504d880e7b03f87aa_images_Screenshot_2026-04-25_030056-24cd5339-fcf3-42da-a6d5-2581861a5c94.png" alt="Dimalsha teaching online class">
-          <img class="photo-sub" src="file:///C:/Users/lahir/.cursor/projects/c-Users-lahir-OneDrive-Desktop-DIM-TEACHING/assets/c__Users_lahir_AppData_Roaming_Cursor_User_workspaceStorage_02ec47db3cdf3cd504d880e7b03f87aa_images_Screenshot_2026-04-25_025926-348330a1-eb5e-4cf3-b1bc-d594f39bb2d8.png" alt="Interactive English lesson with board writing">
+          <img class="photo-main" src="Screenshot 2026-04-25 030056.png" alt="Dimalsha teaching online class">
+          <img class="photo-sub" src="Screenshot 2026-04-25 025926.png" alt="Interactive English lesson with board writing">
         </div>
       </div>
       <div class="watermark">English Academy | Colombo</div>
@@ -282,32 +326,32 @@
 
     <section class="poster square">
       <div class="badge">LIMITED SEATS</div>
-      <div class="circle c1"></div>
-      <div class="circle c2"></div>
+      <div class="glow glow-a"></div>
+      <div class="glow glow-b"></div>
       <div class="poster-inner">
         <div class="content">
-          <h1>Boost Your English Results</h1>
-          <p class="sub">Join premium classes for school English and IELTS preparation.</p>
-          <div class="chips">
-            <span class="chip">Grade 6 to 13</span>
-            <span class="chip">Online + Physical</span>
-            <span class="chip">Weekly Assessments</span>
-          </div>
+          <h1>Boost English Results Fast</h1>
+          <p class="sub">Join vibrant classes with practical teaching, weekly guidance, and confident speaking practice.</p>
           <div class="name-box">
             <strong>Dimalsha Thathsarani</strong>
-            <span>Trusted teacher with classroom + online teaching expertise.</span>
+            <span>IELTS and Grade 6-13 English | Online + Physical Batches</span>
           </div>
-          <div class="cta">Register via WhatsApp: 0760536152</div>
+          <div class="chips">
+            <span class="chip">Grammar + Writing Mastery</span>
+            <span class="chip">Parent-Friendly Progress</span>
+            <span class="chip">High-Impact Training</span>
+          </div>
+          <div class="offer">New Batch Registration Open Now</div>
+          <div class="cta">Call / WhatsApp: 0760536152</div>
         </div>
         <div class="visual">
-          <img class="photo-main" src="file:///C:/Users/lahir/.cursor/projects/c-Users-lahir-OneDrive-Desktop-DIM-TEACHING/assets/c__Users_lahir_AppData_Roaming_Cursor_User_workspaceStorage_02ec47db3cdf3cd504d880e7b03f87aa_images_Screenshot_2026-04-25_030056-24cd5339-fcf3-42da-a6d5-2581861a5c94.png" alt="Teacher portrait from class">
-          <img class="photo-sub" src="file:///C:/Users/lahir/.cursor/projects/c-Users-lahir-OneDrive-Desktop-DIM-TEACHING/assets/c__Users_lahir_AppData_Roaming_Cursor_User_workspaceStorage_02ec47db3cdf3cd504d880e7b03f87aa_images_Screenshot_2026-04-25_025926-348330a1-eb5e-4cf3-b1bc-d594f39bb2d8.png" alt="English phrases lesson screen">
+          <img class="photo-main" src="Screenshot 2026-04-25 025926.png" alt="Teacher showing lesson content">
+          <img class="photo-sub" src="Screenshot 2026-04-25 030056.png" alt="Teacher smiling in class">
         </div>
       </div>
-      <div class="watermark">Devi Balika Vidyalaya - Colombo</div>
+      <div class="watermark">Devi Balika Vidyalaya | Colombo</div>
     </section>
   </div>
-
-  <p class="screenshot-tip">Tip: Open this page in browser, zoom to 100% or 125%, then screenshot each poster card for Facebook and other platforms.</p>
+  <p class="screenshot-tip">Screenshot each card separately and post to Facebook/other platforms.</p>
 </body>
 </html>
